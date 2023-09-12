@@ -1,0 +1,77 @@
+.profile {
+  background-color: #c7d9ef;
+  padding: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+
+  > main {
+    background-color: white;
+    padding: 1rem;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0px 12px 15px 2px rgba(0, 0, 0, 0.1);
+
+    > img {
+      height: 7rem;
+      border-radius: 5px;
+    }
+
+    > h5 {
+      font-size: 2.1rem;
+      text-align: center;
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      > a {
+        padding: 1rem 2rem;
+        border-radius: 3px;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 12rem;
+
+        &:first-child {
+          color: white;
+          background-color: #2874f0;
+        }
+
+        &:last-child {
+          color: black;
+          border: 2px solid #2874f0;
+        }
+      }
+    }
+
+    > button {
+      background-color: black;
+      width: 8rem;
+      padding: 0.8rem;
+      border-radius: 3px;
+      border: none;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile > main {
+    width: 100%;
+    > div {
+      flex-direction: column;
+    }
+  }
+}

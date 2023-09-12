@@ -1,0 +1,82 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 5rem;
+  padding: 2rem 5rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+  > div {
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  > .nav-first-div {
+    font-size: 1.5rem;
+    > span {
+      color: #2874f0;
+    }
+    > svg {
+      color: rgb(175, 175, 21);
+      margin-right: 0.5rem;
+      font-size: 2.5rem;
+    }
+  }
+
+  > .nav-middle-div {
+    > a {
+      margin: 0 1rem;
+      color: rgb(78, 74, 74);
+      &:hover {
+        color: #2874f0;
+      }
+    }
+  }
+
+  > .nav-last-div {
+    > a {
+      margin: 0 1rem;
+    }
+    > a > svg {
+      color: #2874f0;
+      font-size: 1.5rem;
+    }
+    > svg {
+      font-size: 2.5rem;
+      margin-left: 1rem;
+    }
+    button {
+      padding: 0.5rem 1.2rem;
+      background-color: #2874f0;
+      color: white;
+      font-weight: bold;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+    height: 9rem;
+    > div {
+      margin-bottom: 0.6rem;
+    }
+    > .nav-middle-div {
+      width: 100%;
+      justify-content: space-evenly;
+      > a {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.payment-success {
+  background-color: #c7d9ef;
+  padding: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+
+  > main {
+    background-color: white;
+    padding: 1rem;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+
+    > img {
+      height: 12rem;
+    }
+    > a {
+      padding: 0.5rem 1.2rem;
+      background-color: #2874f0;
+      color: white;
+      font-weight: bold;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .payment-success > main {
+    width: 100%;
+
+    > a {
+      width: 100%;
+    }
+  }
+}

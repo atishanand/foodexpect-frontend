@@ -1,0 +1,58 @@
+.order-confirm {
+  background-color: #c7d9ef;
+  padding: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+
+  > main {
+    background-color: white;
+    padding: 1rem;
+    width: 70%;
+    margin: auto;
+
+    > h1 {
+      text-align: center;
+      margin: 1rem;
+    }
+
+    > form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 70%;
+      margin: auto;
+
+      > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(202, 202, 202);
+        padding: 1rem;
+      }
+      > button {
+        padding: 0.8rem;
+        background-color: #2874f0;
+        color: white;
+        font-weight: bold;
+        border-radius: 3px;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .order-confirm > main {
+    width: 100%;
+    > form {
+      width: 100%;
+
+      > button {
+        width: 100%;
+      }
+    }
+  }
+}

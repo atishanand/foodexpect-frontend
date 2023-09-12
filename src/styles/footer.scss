@@ -1,0 +1,27 @@
+.footer {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgb(67, 67, 77);
+  color: white;
+
+  > div {
+    text-align: center;
+    > a {
+      color: white;
+    }
+    svg {
+      font-size: 2rem;
+      margin: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+  }
+}
