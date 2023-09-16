@@ -6,9 +6,48 @@ import milkshake from "../../assets/milkshake.jpg";
 import thali from "../../assets/thali.jpg";
 import softdrink from "../../assets/softdrink.jpg";
 import chowmein from "../../assets/chowmein.jpg";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 function Menu() {
-  const addToCart = (foodNum) => {};
+  const dispatch = useDispatch();
+
+  const addToCart = (foodNum) => {
+    switch (foodNum) {
+      case 1:
+        dispatch({ type: "burgerIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Burger added to cart");
+        break;
+      case 2:
+        dispatch({ type: "pizzaIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Pizza added to cart");
+        break;
+      case 3:
+        dispatch({ type: "milkshakeIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Milkshake added to cart");
+        break;
+      case 4:
+        dispatch({ type: "thaliIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Thali added to cart");
+        break;
+      case 5:
+        dispatch({ type: "softdrinkIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Softdrink added to cart");
+        break;
+      case 6:
+        dispatch({ type: "chowmeinIncrement" });
+        dispatch({ type: "calculatePrice" });
+        toast.success("Chowmein added to cart");
+        break;
+
+      default:
+    }
+  };
 
   return (
     <section id="menu">

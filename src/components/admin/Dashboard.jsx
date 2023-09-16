@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, Tooltip, ArcElement, Legend } from "chart.js";
 import Loader from "../layout/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminStats } from "../../redux/actions/adminAction";
 
 ChartJS.register(Tooltip, ArcElement, Legend);
-
-const loading = false;
 
 const Box = ({ value, title }) => (
   <div>
@@ -19,12 +19,23 @@ const Box = ({ value, title }) => (
 );
 
 function Dashboard() {
+  const dispatch = useDispatch();
+  const { loading, usersCount, ordersCount, totalIncome } = useSelector(
+    (state) => state.admin
+  );
+
+  useEffect(() => {
+    dispatch(getAdminStats());
+  }, [dispatch]);
+
   const data = {
     labels: ["Preparing", "Shipped", "Delivered"],
     datasets: [
       {
         label: "# of orders",
-        data: [2, 3, 4],
+        data: ordersCount
+          ? [ordersCount.preparing, ordersCount.shipped, ordersCount.delivered]
+          : [0, 0, 0],
         backgroundColor: [
           "rgba(159, 63, 176, 0.1)",
           "rgba(78, 63, 176, 0.2)",
@@ -45,9 +56,9 @@ function Dashboard() {
       {loading === false ? (
         <main>
           <article>
-            <Box value={123} title="Users" />
-            <Box value={345} title="Orders" />
-            <Box value={67890} title="Income" />
+            <Box value={usersCount} title="Users" />
+            <Box value={ordersCount.total} title="Orders" />
+            <Box value={totalIncome} title="Income" />
           </article>
           <section>
             <div>

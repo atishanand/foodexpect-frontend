@@ -7,7 +7,7 @@ function PaymentSuccess() {
     <section className="payment-success">
       <main>
         <img src={tickmark} alt="tickmark" />
-        <h1>Congratulation, your order confirmend!!!</h1>
+        <h1>Congratulation, your order confirmed!!!</h1>
         <p>Thanks for trusting us. You can check out order status.</p>
         <Link to="/myorders">Check Status</Link>
       </main>

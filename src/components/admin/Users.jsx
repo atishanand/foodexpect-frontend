@@ -1,37 +1,51 @@
-import React from "react";
-import myself from "../../assets/my-photo.jpg";
+import React, { useEffect } from "react";
+// import myself from "../../assets/my-photo.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { getAdminUsers } from "../../redux/actions/adminAction";
+import Loader from "../layout/Loader";
 
 function Users() {
-  const arr = [1, 2, 3, 4];
+  const dispatch = useDispatch();
+
+  const { loading, users } = useSelector((state) => state.admin);
+
+  useEffect(() => {
+    dispatch(getAdminUsers());
+  }, [dispatch]);
 
   return (
     <section className="table-class">
-      <main>
-        <table>
-          <thead>
-            <tr>
-              <th>User ID</th>
-              <th>Name</th>
-              <th>Photo</th>
-              <th>Role</th>
-              <th>Since</th>
-            </tr>
-          </thead>
-          <tbody>
-            {arr.map((i) => (
-              <tr key={i}>
-                <td>10234</td>
-                <td>Atish</td>
-                <td>
-                  <img src={myself} alt="myself" />
-                </td>
-                <td>Admin</td>
-                <td>{"26-08-2023"}</td>
+      {loading === false ? (
+        <main>
+          <table>
+            <thead>
+              <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Role</th>
+                <th>Since</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </main>
+            </thead>
+            <tbody>
+              {users &&
+                users.map((i) => (
+                  <tr key={i._id}>
+                    <td>#{i._id}</td>
+                    <td>{i.name}</td>
+                    <td>
+                      <img src={i.photo} alt="myself" />
+                    </td>
+                    <td>{i.role}</td>
+                    <td>{i.createdAt.split("T")[0]}</td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </main>
+      ) : (
+        <Loader />
+      )}
     </section>
   );
 }
