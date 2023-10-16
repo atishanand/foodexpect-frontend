@@ -146,7 +146,7 @@ function Cart() {
           value={thali.quantity}
           title="Thali"
           img={thaliImg}
-          price={150}
+          price={250}
           increment={() => increment(4)}
           decrement={() => decrement(4)}
         />
